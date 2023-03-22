@@ -81,7 +81,7 @@ class TourItem extends StatelessWidget {
                      ),
                      InkWell(
                       onTap: (){
-                        print("Container index is $index");
+                        Navigator.pushReplacementNamed(context, '/destiny',arguments: Rater(rate: rate, index: index));
                       },
                        child: Container(
                         margin: const EdgeInsets.fromLTRB(20, 10, 0, 3),
@@ -93,14 +93,15 @@ class TourItem extends StatelessWidget {
                         ),
                         child: const Center(
                           child: Text("Details",style: TextStyle(
-                                         fontSize: 20,
+                                         fontSize: 18,
                                          color: Colors.white,
-                                         fontWeight: FontWeight.w600,
+                                         fontWeight: FontWeight.w400,
                                          fontFamily: 'Roboto'
                        ),
                         ),
                                         ),),
                      )
+                     
                     ],
 
                   )
@@ -109,40 +110,6 @@ class TourItem extends StatelessWidget {
                   ),
                 ),
               );
-  }
-}
-class ContinentsWidget extends StatelessWidget {
-    final double height;
-  final String continent;
-  const ContinentsWidget({
-    super.key,
-    required this.height,
-    required this.continent,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => print("Continent is $continent"),
-      child: Container(
-                      margin: const EdgeInsets.only(left: 5),
-                      padding: const EdgeInsets.only(right: 5,left: 5),
-                      height: height*0.035,
-      decoration:const BoxDecoration(
-           color: Color.fromARGB(255, 48, 47, 47),
-           borderRadius: BorderRadius.all(Radius.circular(10))
-         ),
-         child: Center(
-           child: Text(continent,style: const TextStyle(
-                          fontSize: 16,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                          fontFamily: 'Roboto'
-                     ),
-                    ),
-                 ),
-                    ),
-    );
   }
 }
 
@@ -185,8 +152,8 @@ class City extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   margin: const EdgeInsets.only(left: 15,top: 10),
                   child: Text(destiny.destination,style: const TextStyle(
-                          fontSize: 20,
-                          color: Color.fromARGB(255, 32, 32, 32),
+                          fontSize: 18,
+                          color: Color.fromARGB(255, 94, 92, 92),
                           fontWeight: FontWeight.w600,
                           fontFamily: 'Roboto'
                      ),
@@ -196,10 +163,10 @@ class City extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   margin: const EdgeInsets.only(left: 15,top: 5),
                   child: Text(destiny.description,style: const TextStyle(
-                          fontSize: 18,
-                          color: Color.fromARGB(255, 32, 32, 32),
-                          fontWeight: FontWeight.w400,
-                          fontFamily: 'Roboto'
+                           fontSize: 16,
+                           color: Color.fromARGB(255, 94, 92, 92),
+                           fontWeight: FontWeight.w400,
+                           fontFamily: 'Roboto'
                      ),
                     ),
                 )
@@ -214,7 +181,7 @@ class City extends StatelessWidget {
                   color: Color.fromARGB(255, 133, 131, 131)
                  ),
                 child:Center(child: Text("US \$ ${destiny.ticket.toString()}",style: const TextStyle(
-                          fontSize: 22,
+                          fontSize: 18,
                           color: Colors.white,
                           fontWeight: FontWeight.w600,
                           fontFamily: 'Roboto'
@@ -225,6 +192,40 @@ class City extends StatelessWidget {
           ])
         ),
       ),
+    );
+  }
+}
+class ContinentsWidget extends StatelessWidget {
+    final double height;
+  final String continent;
+  const ContinentsWidget({
+    super.key,
+    required this.height,
+    required this.continent,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () => print("Continent is $continent"),
+      child: Container(
+                      margin: const EdgeInsets.only(left: 5),
+                      padding: const EdgeInsets.only(right: 5,left: 5),
+                      height: height*0.035,
+      decoration:const BoxDecoration(
+           color: Color.fromARGB(255, 48, 47, 47),
+           borderRadius: BorderRadius.all(Radius.circular(10))
+         ),
+         child: Center(
+           child: Text(continent,style: const TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'Roboto'
+                     ),
+                    ),
+                 ),
+                    ),
     );
   }
 }
